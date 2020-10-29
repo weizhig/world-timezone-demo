@@ -67,7 +67,6 @@
 			           <password>${password}</password>
 			           <applicationName>${cloudhub.application.name}</applicationName>
 			           <environment>${env}</environment>
-			           
 			       </cloudHubDeployment>
 			   </configuration>
 			<executions>
