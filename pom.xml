@@ -16,6 +16,15 @@
 
 		<app.runtime>4.3.0</app.runtime>
 		<mule.maven.plugin.version>3.3.5</mule.maven.plugin.version>
+		<mule.version>4.3.0</mule.version>
+		<username>warrenatcap005</username>
+		<password>Vivi15913131006</password>
+		<env>Sandbox</env>
+		<mule.maven.plugin.version>3.1.6</mule.maven.plugin.version>
+		<cloudhub.application.name>spectre-dynamodb-sys-api</cloudhub.application.name>
+		<maven.deploy.plugin.version>2.8.2</maven.deploy.plugin.version>
+		<clientId>582bfdb33e4a4ed5b7074cfeb964aa04</clientId>
+		<clientSecret>36FdD23f20b34e52B1424551bE882E05</clientSecret>
 	</properties>
 
 
@@ -35,7 +44,48 @@
 				<configuration>
 				</configuration>
 			</plugin>
+			
+
+			<plugin>
+			 <groupId>org.apache.maven.plugins</groupId>
+			 <artifactId>maven-deploy-plugin</artifactId>
+			 <version>${maven.deploy.plugin.version}</version>
+			 <configuration>
+			   <skip>true</skip>
+			 </configuration>
+			</plugin>
+			<plugin>
+			 <groupId>org.mule.tools.maven</groupId>
+			 <artifactId>mule-maven-plugin</artifactId>
+			 <version>3.3.5</version>
+			 <extensions>true</extensions>
+			 <configuration>
+			       <cloudHubDeployment>
+			           <uri>https://anypoint.mulesoft.com</uri>
+			           <muleVersion>${mule.version}</muleVersion>
+			           <username>${username}</username>
+			           <password>${password}</password>
+			           <applicationName>${cloudhub.application.name}</applicationName>
+			           <environment>${env}</environment>
+			           
+			       </cloudHubDeployment>
+			   </configuration>
+			<executions>
+			<execution>
+			<id>deploy</id>
+			<phase>deploy</phase>
+			<goals>
+			<goal>deploy</goal>
+			</goals>
+			<configuration>
+                    <classifier>mule-application</classifier>
+                </configuration>
+               </execution>
+            </executions>
+		</plugin>
+			
 		</plugins>
+		
 	</build>
 
 	<dependencies>
@@ -68,6 +118,10 @@
         </repository>
     </repositories>
     <pluginRepositories>
+	    <pluginRepository>
+		    <id>mule-public</id>
+		    <url>https://repository.mulesoft.org/nexus/content/repositories/releases</url>
+		  </pluginRepository>
         <pluginRepository>
             <id>mulesoft-releases</id>
             <name>mulesoft release repository</name>
