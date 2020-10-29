@@ -21,10 +21,8 @@
 		<password>Vivi15913131006</password>
 		<env>Sandbox</env>
 		<mule.maven.plugin.version>3.1.6</mule.maven.plugin.version>
-		<cloudhub.application.name>spectre-dynamodb-sys-api</cloudhub.application.name>
+		<cloudhub.application.name>world-timezone-demo</cloudhub.application.name>
 		<maven.deploy.plugin.version>2.8.2</maven.deploy.plugin.version>
-		<clientId>582bfdb33e4a4ed5b7074cfeb964aa04</clientId>
-		<clientSecret>36FdD23f20b34e52B1424551bE882E05</clientSecret>
 	</properties>
 
 
@@ -54,6 +52,7 @@
 			   <skip>true</skip>
 			 </configuration>
 			</plugin>
+			
 			<plugin>
 			 <groupId>org.mule.tools.maven</groupId>
 			 <artifactId>mule-maven-plugin</artifactId>
@@ -67,6 +66,8 @@
 			           <password>${password}</password>
 			           <applicationName>${cloudhub.application.name}</applicationName>
 			           <environment>${env}</environment>
+			           <worker>1</worker>
+			           <workerType>Micro</workerType>
 			       </cloudHubDeployment>
 			   </configuration>
 			<executions>
