@@ -76,6 +76,7 @@
 							<anypoint.platform.contracts_base_uri>https://anypoint.mulesoft.com/apigateway/ccs</anypoint.platform.contracts_base_uri>
 							<key>value</key>
 						</properties>
+						<objectStoreV2>true</objectStoreV2>
 			       </cloudHubDeployment>
 			   </configuration>
 			<executions>
