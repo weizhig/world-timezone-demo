@@ -68,6 +68,7 @@
 			           <environment>${env}</environment>
 			           <workers>1</workers>
 			           <workerType>Micro</workerType>
+			           
 			       </cloudHubDeployment>
 			   </configuration>
 			<executions>
